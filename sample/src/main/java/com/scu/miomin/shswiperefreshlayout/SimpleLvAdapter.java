@@ -110,9 +110,9 @@ public class SimpleLvAdapter extends BaseAdapter {
             holder.checkBox.setVisibility(View.INVISIBLE);
         }
 
-            holder.id_num.setText("1111111111111111111" + datas.get(position));
+            holder.id_num.setText("" + datas.get(position));
 
-            holder.checkBox.setChecked(getIsSelected().get(position));
+            holder.checkBox.setChecked(getIsSelected().get(position) == null ? false : getIsSelected().get(position));
         return convertView;
     }
 

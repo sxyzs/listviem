@@ -16,6 +16,7 @@ import com.scu.miomin.shswiperefresh.core.SHSwipeRefreshLayout;
 import com.scu.miomin.shswiperefresh.view.SHListView;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 public class LvActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
@@ -184,7 +185,7 @@ public class LvActivity extends AppCompatActivity implements AdapterView.OnItemC
     private void initData() {
         mDatas = new ArrayList<String>();
         for (int i = 0; i < 10; i++) {
-            mDatas.add("11111111111111111111111111111111111" +  i);
+            mDatas.add("" +  i);
         }
     }
     private void initData1() {
@@ -200,10 +201,12 @@ public class LvActivity extends AppCompatActivity implements AdapterView.OnItemC
             message.what = 1;
             handler.sendMessage(message);
          ;
-
         }
 //        swipeRefreshLayout.setVisibility(View.GONE);
 
+
+        swipeRefreshLayout.setRefreshEnable(false);
+        swipeRefreshLayout.setLoadmoreEnable(false);
 
     }
 
@@ -246,12 +249,19 @@ public class LvActivity extends AppCompatActivity implements AdapterView.OnItemC
 
         for (int i = 0; i < count; i++) {
             int p = i-(count-simpleLvAdapter.getCount());
-            if(SimpleLvAdapter.getIsSelected().get(p) != null && SimpleLvAdapter.getIsSelected().get(p)) {
+            if(SimpleLvAdapter.getIsSelected().get(i) != null && SimpleLvAdapter.getIsSelected().get(i)) {
                mDatas.remove(p);
 //                simpleLvAdapter.removeData(p);
                 simpleLvAdapter.notifyDataSetChanged();
             }
         }
+
+        //重置checkbox
+        for (Integer key : SimpleLvAdapter.getIsSelected().keySet()) {
+            SimpleLvAdapter.getIsSelected().put(key, false);
+        }
+
+
 //        checkNum = mDatas.size();
         // 刷新listview和TextView的显示
 
