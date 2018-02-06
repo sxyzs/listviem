@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="30dp"
+    android:orientation="horizontal"
+    android:padding="5dp">
+    <TextView
+        android:id="@+id/id_num"
+        android:layout_width="40dp"
+        android:layout_height="54dp"
+        android:background="@drawable/white_bg_selector"
+        android:gravity="center_vertical"
+        android:padding="8dp"
+        android:text="Test"
+        android:textSize="18sp">
+    </TextView>
+    <CheckBox
+        android:id="@+id/cb_item_checkbox"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:visibility="gone"
+        android:focusable="false"
+        />
+</LinearLayout>
+
+
+
+
+
